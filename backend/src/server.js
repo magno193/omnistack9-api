@@ -4,6 +4,13 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+// Conexão com o mongoDB
+mongoose.connect(
+    'mongodb+srv://omnistack:omnistack@omnistack-ymbxy.mongodb.net/semana09?retryWrites=true&w=majority',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
 // Plugin para reconhecer req.body de JSON
 app.use(express.json());
 // Usar as rotas
