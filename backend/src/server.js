@@ -3,9 +3,11 @@ const express = require('express');
 const app = express();
 
 // Rota com parâmetros de request e response
-// req.query acessa query params
-app.get('/users', (request, response) => {
-    return response.json({ idade: request.params.idade})
+// req.query - Acessar query params (filtros)
+// req.params - Acessar route params (edição, delete)
+
+app.put('/users/:id', (request, response) => {
+    return response.json({ id: request.params.id})
 })
 // Porta
 app.listen(3333);
