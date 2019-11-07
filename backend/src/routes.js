@@ -10,5 +10,6 @@ const routes = express.Router();
 // req.body - Acessar corpo da requisição (criação, edição)
 routes.post('/sessions', SessionController.store);
 routes.post('/spots', SpotController.store);
+
 // Exportando routes
 module.exports = routes;
