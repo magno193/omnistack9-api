@@ -1,8 +1,11 @@
-// Mètodos
-// index, show, store, update, destroy
+const User = require('../models/User');
 
 module.exports = {
-    store(req, res){
-        return res.json({ message: "Hello World" })
+    async store(req, res){
+        // req.body para pegar a estrutura JSON da requisição
+        const email = req.body.email;
+        const user = await User.create(email); // Cria um user
+
+        return res.json(user); // Retorna o user
     }
 };

@@ -2,10 +2,7 @@ const mongoose = require('mongoose');
 
 // Estrutura do usuário
 const UserSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    age: Number,
-    company: String
+    email: String
 });
 
 // Exportar e criar model
