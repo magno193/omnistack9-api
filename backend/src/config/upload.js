@@ -9,7 +9,9 @@ module.exports = {
         destination: path.resolve(__dirname,'..', '..', 'uploads'),
         // Nome para o arquivo de destino
         filename: (req, file, callback) => {
-            callback(null, `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`);
+            const ext = path.extname(file.originalname);
+            const name = path.basename(file.originalname);
+            callback(null, `${name}-${Date.now()}${path.extname(ext)}`);
         }
-    }),
+    })
 }; 
