@@ -1,6 +1,6 @@
 // Upload de imagens e multipart form
 const multer = require('multer');
-const path 
+const path = require('path');
 
 module.exports = {
     // Arquivos de disco, físicos
