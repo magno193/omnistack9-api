@@ -2,6 +2,15 @@ const Spot = require('../models/Spot');
 const User = require('../models/User')
 
 module.exports = {
+
+    async index(req, res){
+        const tech = req.query.tech;
+        // Retorna a tecnologia utilizada
+        const spot = await Spot.find({ techs: tech });
+
+        return res.json(spot)
+    },
+
     async store(req, res){
         const filename = req.file.filename;
         const {company, techs, price} = req.body;

@@ -13,7 +13,9 @@ const upload = multer(uploadConfig);
 // req.params - Acessar route params (edição, delete)
 // req.body - Acessar corpo da requisição (criação, edição)
 routes.post('/sessions', SessionController.store);
+
 routes.post('/spots', upload.single('image'), SpotController.store);
+routes.get('/spots', SpotController.index);
 
 // Exportando routes
 module.exports = routes;
