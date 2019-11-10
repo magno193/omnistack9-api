@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import api from './services/api';
 import './App.css';
 import logo from './assets/logo.svg'
 
 function App() {
-  function handleSubmit() {
-    console.log('Ok!');
+  // Estados
+  // Estado do email e atualizar o email
+  const [email, setEmail] = useState('');
+  
+  function handleSubmit(event) {
+    // Previna o seu funcionamento padrão
+    event.preventDefault()
+    console.log(email);
+    
   }
 
   return (
@@ -23,6 +30,7 @@ function App() {
           type="email"
           id="email"
           placeholder="Seu melhor e-mail!"
+          onChange={event => setEmail(event.target.value)}
         />
         <button className="btn" type="submit">Entrar</button>
       </form>
