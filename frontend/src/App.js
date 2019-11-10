@@ -1,8 +1,13 @@
 import React from 'react';
+import api from './services/api';
 import './App.css';
 import logo from './assets/logo.svg'
 
 function App() {
+  function handleSubmit() {
+    console.log('Ok!');
+  }
+
   return (
   <div className="container">
     <img src={logo} alt="CoWorking"/>
@@ -12,7 +17,7 @@ function App() {
         Ofereça <strong>spots</strong> para programadores e encontre<strong> talentos</strong> para a sua empresa.
       </p>
 
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <label htmlFor="email">E-MAIL *</label>
         <input
           type="email"
