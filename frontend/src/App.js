@@ -9,7 +9,7 @@ function App() {
 
     <div className="content">
       <p>
-        Oferaça <strong>spots</strong> para programadores e encontre<strong>talentos</strong> para a sua empresa.
+        Ofereça <strong>spots</strong> para programadores e encontre<strong> talentos</strong> para a sua empresa.
       </p>
 
       <form action="">
@@ -17,9 +17,11 @@ function App() {
         <input
           type="email"
           id="email"
-          placeholder="Seu melhor e-mail"
+          placeholder="Seu melhor e-mail!"
         />
+        <button className="btn" type="submit">Entrar</button>
       </form>
+
     </div>
   </div>
  );
