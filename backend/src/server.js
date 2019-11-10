@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = require('./routes');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
 
@@ -11,6 +12,7 @@ mongoose.connect(
     useUnifiedTopology: true
 });
 
+app.use(cors());
 // Plugin para reconhecer req.body de JSON
 app.use(express.json());
 // Usar as rotas
