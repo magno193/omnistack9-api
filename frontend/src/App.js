@@ -8,10 +8,16 @@ function App() {
   // Estado do email e atualizar o email
   const [email, setEmail] = useState('');
   
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     // Previna o seu funcionamento padrão
     event.preventDefault()
-    console.log(email);
+    
+    // Chamando a api
+    const response = await api.post('/sessions', {
+      email: email
+    });
+
+    console.log(response);
     
   }
 
