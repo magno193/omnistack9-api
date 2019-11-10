@@ -16,8 +16,10 @@ function App() {
     const response = await api.post('/sessions', {
       email: email
     });
-
-    console.log(response);
+    // Pega o id do email
+    const _id = response.data._id
+    // Armazenar o id no BD do navegador
+    localStorage.setItem('user', _id);
     
   }
 
