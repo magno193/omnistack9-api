@@ -1,23 +1,36 @@
 import React, { useState, useMemo }from "react";
+import api from '../../services/api'
 
 import camera from '../../assets/camera.svg'
 
 import './styles.css'
 
-export default function New() {
+export default function New({history}) {
     const [image, setImage] = useState(null);
     const [company, setCompany] = useState('');
     const [techs, setTechs] = useState('');
     const [price, setPrice] = useState('');
 
-    const preview = useMemo(
-        () => {
+    const preview = useMemo(() => {
             return image ? URL.createObjectURL(image) : null
-        },[image]
-    )
+        },[image])
 
-    function handleSubmit() {
-        
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        const data = new FormData();
+        const user_id = localStorage.getItem('user');
+
+        data.append('image', image)
+        data.append('company', company)
+        data.append('techs', techs)
+        data.append('price', price)
+
+        const response = await api.post('/spots', data, {
+            headers: { user_id }
+        })
+
+        history.push('/dashboard');
     }
 
     return (
