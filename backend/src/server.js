@@ -2,6 +2,7 @@ const express = require('express');
 const routes = require('./routes');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -15,6 +16,8 @@ mongoose.connect(
 app.use(cors());
 // Plugin para reconhecer req.body de JSON
 app.use(express.json());
+// Para retornar a rota estática da imagem
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')))
 // Usar as rotas
 app.use(routes)
 
