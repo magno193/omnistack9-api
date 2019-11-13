@@ -29,12 +29,13 @@ export default function Login() {
     <form onSubmit={handleSubmit}>
         <label htmlFor="email">E-MAIL *</label>
         <input
+            required
             type="email"
             id="email"
             placeholder="Seu melhor e-mail!"
             onChange={event => setEmail(event.target.value)}/>
         <button className="btn" type="submit">Entrar</button>
         </form>
-        </>
+    </>
     );
 }
