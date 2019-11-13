@@ -10,6 +10,14 @@ label#image {
     align-items: center;
 }
 
-label#image input{
+label#image input {
+    display: none;
+}
+
+label#image.has-image {
+    border: 0;
+}
+
+label#image.has-image img{
     display: none;
 }

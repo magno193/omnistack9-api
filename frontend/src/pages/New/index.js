@@ -1,13 +1,20 @@
-import React, { useState }from "react";
+import React, { useState, useMemo }from "react";
 
 import camera from '../../assets/camera.svg'
 
 import './styles.css'
 
 export default function New() {
+    const [image, setImage] = useState(null);
     const [company, setCompany] = useState('');
     const [techs, setTechs] = useState('');
     const [price, setPrice] = useState('');
+
+    const preview = useMemo(
+        () => {
+            return image ? URL.createObjectURL(image) : null
+        },[image]
+    )
 
     function handleSubmit() {
         
@@ -15,8 +22,12 @@ export default function New() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label id="image">
-                <input type="file"></input>
+            <label
+                id="image"
+                style={{backgroundImage: `url(${preview})`}}
+                className={image ? "has-image" : ''}
+            > 
+                <input type="file" onChange={e => setImage(e.target.files[0])}/>
                 <img src={camera} alt="Selecet image"/>
             </label>
 
